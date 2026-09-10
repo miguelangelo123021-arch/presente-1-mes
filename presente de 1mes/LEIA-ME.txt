@@ -1,0 +1,9 @@
+PRESENTE DE 1 MÊS — INSTRUÇÕES
+
+1. Abre index.html no navegador para ver o site.
+2. As 3 fotos já estão dentro de assets/.
+3. Para mudar os textos, abre index.html e procura as frases.
+4. Para colocar online, podes enviar a pasta para um serviço de alojamento de sites estáticos.
+5. Se quiseres usar QR code, gera um QR para o endereço final do site depois de o publicares.
+
+Nota: o site foi inspirado na estrutura/ideia do vídeo enviado, mas foi criado do zero e personalizado com as tuas fotos.
