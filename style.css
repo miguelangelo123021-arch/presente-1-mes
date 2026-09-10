@@ -1,0 +1,1042 @@
+/* =========================================================
+   PALETA ROMÂNTICA AZUL DELICADO (MAR + CÉU + CARTA + AMOR)
+   70% Tons claros/neutros (Branco, Creme, Bege suave)
+   20% Azul pastel, Azul céu, Azul bebé & Azul acinzetado
+   10% Azul profundo para contrastes elegantes
+   ========================================================= */
+
+:root {
+  /* 70% Neutros & Base */
+  --bg-cream: #faf7f2;
+  --bg-warm-cream: #f4eee6;
+  --bg-soft-beige: #ebd8;
+  --paper-white: rgba(255, 255, 255, 0.78);
+  --paper-strong: rgba(255, 253, 249, 0.96);
+  --paper-blue-tint: rgba(238, 246, 252, 0.65);
+  
+  /* Tipografia & Leitura (Azul Profundo Elegante) */
+  --ink: #203444;
+  --muted: #506778;
+  --soft-text: #768f03;
+  
+  /* 20% Azuis Suaves & Românticos */
+  --blue-baby: #e4f1f9;
+  --blue-pastel: #cbe2f2;
+  --blue-sky: #9dc4e2;
+  --blue-greyish: #789cb6;
+  --blue-soft-button: #5d8cb3;
+  --blue-soft-button-hover: #4e7a9e;
+  
+  /* 10% Azul Profundo para detalhes e contraste */
+  --blue-deep: #1c354a;
+  --blue-deep-dark: #142738;
+  
+  /* Sunset & Sea subtle warm glow accents */
+  --sunset-glow: rgba(255, 238, 222, 0.45);
+  
+  /* Linhas & Sombras azuladas subtis */
+  --line-soft: rgba(120, 156, 182, 0.2);
+  --line-hand-drawn: rgba(93, 140, 179, 0.35);
+  --shadow-subtle: 0 18px 45px rgba(28, 53, 74, 0.07);
+  --shadow-card: 0 24px 50px rgba(24, 48, 68, 0.09);
+  --shadow-blue-glow: 0 8px 25px rgba(157, 196, 226, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg-cream);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img {
+  max-inline-size: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* Fundo suave ambiente: Mar, Céu e Pôr-do-sol suave */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(255, 245, 235, 0.85) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(228, 241, 249, 0.7) 0%, transparent 45%),
+    linear-gradient(180deg, #faf7f2 0%, #f2f7fc 40%, #e8f2f9 80%, #f5efe6 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   HERO / ABERTURA
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-block-size: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 2vw, 2rem);
+  background: linear-gradient(165deg, rgba(253, 250, 245, 0.95) 0%, rgba(236, 245, 252, 0.9) 60%, rgba(245, 239, 232, 0.92) 100%);
+  overflow: hidden;
+}
+
+/* Esferas luminosas em azul pastel e pôr-do-sol */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.hero::before {
+  inline-size: 24rem;
+  block-size: 24rem;
+  background: rgba(197, 226, 242, 0.55); /* azul pastel */
+  inset-block-start: -6rem;
+  inset-inline-start: -5rem;
+}
+
+.hero::after {
+  inline-size: 20rem;
+  block-size: 20rem;
+  background: rgba(255, 232, 214, 0.5); /* brilho suave pôr-do-sol */
+  inset-inline-end: -4rem;
+  inset-block-end: -3rem;
+}
+
+.hero-card {
+  position: relative;
+  z-index: 1;
+  inline-size: min(92vw, 32rem);
+  padding: clamp(2.2rem, 5vw, 3.4rem) clamp(1.2rem, 4vw, 2.2rem);
+  border-radius: 2.2rem;
+  background: rgba(255, 254, 251, 0.82);
+  border: 1px solid rgba(157, 196, 226, 0.4);
+  box-shadow: var(--shadow-card), 0 0 30px rgba(203, 226, 242, 0.25);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Moldura interna delicada em linha azul desenhada */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed var(--line-hand-drawn);
+  border-radius: 1.6rem;
+  pointer-events: none;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--blue-greyish);
+  font-weight: 600;
+}
+
+.eyebrow::before,
+.eyebrow::after,
+.section-kicker::before,
+.section-kicker::after {
+  content: " ✧ ";
+  color: var(--blue-sky);
+}
+
+.hero-title,
+.intro-word,
+.tomorrow-word,
+.final-title,
+.letter-title,
+.timeline-item .title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.hero-title {
+  margin: 0.8rem 0 0;
+  font-size: clamp(3rem, 12vw, 4.2rem);
+  line-height: 0.95;
+  color: var(--blue-deep);
+}
+
+.hero-subtitle {
+  margin-block-start: 0.7rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.15rem, 4vw, 1.55rem);
+  line-height: 1.35;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.hero-bear {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  margin: 0.8rem auto 0;
+  border-radius: 50%;
+  background: rgba(238, 246, 252, 0.85);
+  border: 1px solid rgba(157, 196, 226, 0.45);
+  font-size: 1.6rem;
+  box-shadow: 0 8px 20px rgba(120, 156, 182, 0.15);
+}
+
+.hero-lines {
+  position: relative;
+  min-block-size: 4rem;
+  margin-block-start: 1.1rem;
+}
+
+.hero-line {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.05rem, 3vw, 1.28rem);
+  color: var(--blue-deep);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-family: "Georgia", serif;
+  font-style: italic;
+}
+
+.hero-line.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-button,
+.music-button,
+.secret-button,
+.final-heart {
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, background-color 0.28s ease;
+}
+
+/* Botão principal em Azul Suave Romântico com brilho subtil */
+.cta-button {
+  position: relative;
+  margin-block-start: 1.4rem;
+  padding: 0.95rem 1.8rem;
+  background: linear-gradient(135deg, var(--blue-soft-button) 0%, var(--blue-greyish) 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 12px 28px rgba(93, 140, 179, 0.32);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cta-button.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-button:hover,
+.music-button:hover,
+.secret-button:hover,
+.final-heart:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(93, 140, 179, 0.4);
+}
+
+.cta-button:active,
+.music-button:active,
+.secret-button:active,
+.final-heart:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.hero-note {
+  margin-block-start: 1.2rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-greyish);
+  font-weight: 500;
+}
+
+.hero-note .heart-blue {
+  color: #5d8cb3;
+  display: inline-block;
+  margin-inline-start: 0.2rem;
+}
+
+/* =========================================================
+   HISTÓRIA / CONTEÚDO
+   ========================================================= */
+
+.story {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(26px);
+}
+
+body.story-open .story {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.story-section {
+  padding: clamp(3.8rem, 9vw, 6.5rem) 1rem;
+}
+
+.story-container {
+  inline-size: min(100%, 62rem);
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  padding-block-start: 2rem;
+}
+
+.intro-word {
+  margin-block-start: 0.6rem;
+  font-size: clamp(2.5rem, 10vw, 4.8rem);
+  line-height: 0.95;
+  color: var(--blue-deep);
+}
+
+.intro-copy {
+  inline-size: min(100%, 38rem);
+  margin: 1.2rem auto 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 2vw, 1.22rem);
+}
+
+.intro-copy .reveal-line {
+  display: block;
+  margin-block-start: 0.5rem;
+}
+
+/* =========================================================
+   FOTOGRAFIAS & MOLDURAS COM TOQUE AZUL PASTEL
+   ========================================================= */
+
+.photo-scene {
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+}
+
+.photo-frame {
+  position: relative;
+  inline-size: min(100%, 42rem);
+  margin: 0 auto;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  background: var(--blue-baby);
+  border: 1px solid rgba(157, 196, 226, 0.45);
+  box-shadow: 0 20px 50px rgba(28, 53, 74, 0.1), var(--shadow-blue-glow);
+  --tilt: 0deg;
+  --parallax-shift: 0px;
+  transform: translateY(var(--parallax-shift)) rotate(var(--tilt)) scale(1.02);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.photo-frame img {
+  inline-size: 100%;
+  block-size: clamp(24rem, 62vw, 38rem);
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.04) contrast(1.03);
+}
+
+.photo-frame-large {
+  inline-size: min(100%, 52rem);
+}
+
+/* Moldura Tilted estilo Polaróide / Carta */
+.photo-frame-tilted {
+  inline-size: min(88vw, 29rem);
+  margin-inline-start: 0;
+  --tilt: -2deg;
+  border-radius: 1rem;
+  background: #ffffff;
+  padding: 0.8rem 0.8rem 2.8rem 0.8rem;
+  box-shadow: 0 18px 40px rgba(28, 53, 74, 0.11);
+}
+
+.photo-frame-tilted::before {
+  content: "";
+  position: absolute;
+  inset: 0.7rem;
+  border: 1px dashed rgba(120, 156, 182, 0.3);
+  pointer-events: none;
+}
+
+.photo-frame-tilted img {
+  block-size: clamp(22rem, 64vw, 29rem);
+  border-radius: 0.5rem;
+}
+
+.photo-caption,
+.photo-note {
+  margin: 1.1rem auto 0;
+  max-inline-size: 35rem;
+  text-align: center;
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.photo-note {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-greyish);
+  font-weight: 500;
+}
+
+.photo-scene.emotional {
+  position: relative;
+  padding-block-start: 0.8rem;
+}
+
+.photo-frame-full {
+  inline-size: min(100%, 60rem);
+  border-radius: 1.8rem;
+  box-shadow: 0 28px 65px rgba(20, 40, 58, 0.18);
+}
+
+.photo-frame-full::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 39, 56, 0.15) 0%, rgba(20, 39, 56, 0.32) 60%, rgba(15, 29, 42, 0.45) 100%);
+}
+
+.photo-frame-full img {
+  block-size: min(78svh, 46rem);
+}
+
+.emotional-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.emotional-overlay p {
+  inline-size: min(90%, 32rem);
+  margin: 0;
+  text-align: center;
+  color: #f8fcff;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.4rem, 4vw, 2.3rem);
+  line-height: 1.3;
+  text-shadow: 0 10px 28px rgba(12, 25, 38, 0.6);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.emotional.is-visible .emotional-overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   LINHA DO TEMPO (TIMELINE) EM AZUL PASTEL
+   ========================================================= */
+
+.timeline {
+  padding-block-start: 2rem;
+  padding-block-end: 0.5rem;
+}
+
+.timeline-list {
+  position: relative;
+  inline-size: min(100%, 38rem);
+  margin: 2.2rem auto 0;
+  padding-inline-start: 1.5rem;
+}
+
+/* Linha vertical em degradé azul pastel */
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.35rem;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inline-size: 2px;
+  background: linear-gradient(180deg, rgba(157, 196, 226, 0.15), rgba(93, 140, 179, 0.6), rgba(157, 196, 226, 0.15));
+}
+
+.timeline-item {
+  position: relative;
+  margin-block-end: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 254, 251, 0.7);
+  border: 1px solid rgba(197, 226, 242, 0.45);
+  box-shadow: 0 10px 25px rgba(28, 53, 74, 0.04);
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.timeline-item::before {
+  content: "🩵";
+  position: absolute;
+  inset-inline-start: -1.75rem;
+  inset-block-start: 1.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(93, 140, 179, 0.3));
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item .date {
+  display: inline-block;
+  margin-block-end: 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-greyish);
+  font-weight: 600;
+}
+
+.timeline-item .title {
+  margin: 0;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  line-height: 1.1;
+  color: var(--blue-deep);
+}
+
+.timeline-item .text {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* =========================================================
+   CARTA ROMÂNTICA (PAPEL DE CARTA COM DETALHES AZUL PASTEL)
+   ========================================================= */
+
+.letter-section {
+  padding-block-start: 2rem;
+  padding-block-end: 1rem;
+}
+
+.letter-shell {
+  inline-size: min(100%, 48rem);
+  margin: 0 auto;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  border-radius: 1.8rem;
+  background: linear-gradient(140deg, rgba(255, 254, 252, 0.88) 0%, rgba(242, 248, 253, 0.95) 100%);
+  border: 1px solid rgba(157, 196, 226, 0.4);
+  box-shadow: var(--shadow-card), 0 0 35px rgba(212, 230, 241, 0.3);
+  position: relative;
+}
+
+/* Moldura interna em marca de água azul pastel */
+.letter-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0.9rem;
+  border: 1px dashed rgba(120, 156, 182, 0.28);
+  border-radius: 1.3rem;
+  pointer-events: none;
+}
+
+.letter-title {
+  margin-block-start: 0.6rem;
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1;
+  color: var(--blue-deep);
+  text-align: center;
+}
+
+.letter {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.2rem, 4vw, 2.2rem);
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(157, 196, 226, 0.08),
+      rgba(157, 196, 226, 0.08) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+}
+
+.letter p {
+  margin: 0 0 1.1rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.08rem, 3vw, 1.28rem);
+  line-height: 1.85;
+  color: #1e3242;
+}
+
+.letter .signature {
+  margin-block-start: 1.8rem;
+  text-align: end;
+  font-style: italic;
+  color: var(--blue-deep);
+  font-weight: 600;
+  white-space: pre-line;
+}
+
+/* =========================================================
+   SECÇÃO AMANHÃ... (CÉU NOTURNO SOBRE O MAR)
+   ========================================================= */
+
+.tomorrow-section {
+  position: relative;
+  min-block-size: 88svh;
+  display: grid;
+  place-items: center;
+  background: 
+    radial-gradient(circle at 50% 20%, rgba(157, 196, 226, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(255, 238, 222, 0.12) 0%, transparent 40%),
+    linear-gradient(180deg, #182b3c 0%, #12202e 50%, #0d1722 100%);
+  color: #f2f8fc;
+  padding: 1.5rem 1rem;
+  overflow: hidden;
+}
+
+.tomorrow-section::before,
+.tomorrow-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(25px);
+}
+
+.tomorrow-section::before {
+  inline-size: 18rem;
+  block-size: 18rem;
+  background: rgba(157, 196, 226, 0.2);
+  inset-block-start: -4rem;
+  inset-inline-end: -3rem;
+}
+
+.tomorrow-section::after {
+  inline-size: 20rem;
+  block-size: 20rem;
+  background: rgba(120, 156, 182, 0.15);
+  inset-block-end: -5rem;
+  inset-inline-start: -3rem;
+}
+
+.tomorrow-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  inline-size: min(100%, 42rem);
+}
+
+.tomorrow-word {
+  margin: 0;
+  font-size: clamp(3.8rem, 13vw, 7.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  color: #eaf4fc;
+  text-shadow: 0 10px 30px rgba(13, 23, 34, 0.5);
+}
+
+.tomorrow-line {
+  margin: 0.6rem 0 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1s ease, transform 1s ease;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+  line-height: 1.5;
+  color: rgba(234, 244, 252, 0.92);
+}
+
+.tomorrow-section.is-visible .tomorrow-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tomorrow-section.is-visible .tomorrow-line:nth-of-type(2) {
+  transition-delay: 0.8s;
+}
+
+.tomorrow-section.is-visible .tomorrow-line:nth-of-type(3) {
+  transition-delay: 1.6s;
+}
+
+/* =========================================================
+   SECÇÃO FINAL
+   ========================================================= */
+
+.final-scene {
+  position: relative;
+  padding: 3.5rem 1rem 5.5rem;
+  background: linear-gradient(180deg, rgba(242, 248, 253, 0.95) 0%, rgba(234, 243, 250, 0.98) 100%);
+  overflow: hidden;
+}
+
+.final-photo-wrap {
+  inline-size: min(100%, 40rem);
+  margin: 0 auto;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(28, 53, 74, 0.12), var(--shadow-blue-glow);
+  border: 1px solid rgba(157, 196, 226, 0.4);
+}
+
+.final-photo-wrap img {
+  inline-size: 100%;
+  block-size: clamp(22rem, 62vw, 34rem);
+  object-fit: cover;
+  filter: saturate(1.03);
+}
+
+.final-copy {
+  inline-size: min(100%, 34rem);
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.final-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 3vw, 1.22rem);
+}
+
+.final-copy .final-title {
+  margin-block-end: 0.4rem;
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: var(--blue-deep);
+}
+
+/* Botão de coração final em Azul Suave */
+.final-heart {
+  display: inline-block;
+  margin: 1.4rem auto 0;
+  padding: 0.85rem 1.4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(157, 196, 226, 0.5);
+  color: var(--blue-soft-button);
+  font-size: 1.5rem;
+  box-shadow: 0 8px 20px rgba(93, 140, 179, 0.18);
+}
+
+.secret-note {
+  max-inline-size: 28rem;
+  margin: 1.2rem auto 0;
+  text-align: center;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--blue-deep);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.secret-note.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final-tag {
+  margin-block-start: 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-greyish);
+}
+
+/* =========================================================
+   PARTÍCULAS E ELEMENTOS FLUTUANTES EM AZUL PASTEL
+   ========================================================= */
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  inset-block-start: -1rem;
+  font-size: 0.85rem;
+  color: rgba(120, 170, 205, 0.65);
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.8);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-x), 110vh, 0) scale(1.2);
+  }
+}
+
+/* =========================================================
+   BOTÕES FLUTUANTES (MÚSICA & QR CODE) EM AZUL SUAVE
+   ========================================================= */
+
+.secret-button {
+  position: absolute;
+  inset-inline-end: 1rem;
+  inset-block-start: 1rem;
+  z-index: 4;
+  inline-size: 2.3rem;
+  block-size: 2.3rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(15, 30, 45, 0.2);
+}
+
+.qr-button {
+  position: fixed;
+  inset-inline-start: 1rem;
+  inset-block-end: 1rem;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(157, 196, 226, 0.45);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--blue-deep);
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(28, 53, 74, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.music-button {
+  position: fixed;
+  inset-inline-end: 1rem;
+  inset-block-end: 1rem;
+  z-index: 20;
+  padding: 0.8rem 1.1rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(157, 196, 226, 0.45);
+  color: var(--blue-deep);
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px rgba(28, 53, 74, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.music-button.is-visible {
+  display: inline-flex;
+}
+
+.music-button.is-paused {
+  opacity: 0.88;
+}
+
+.music-button .state-dot {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: var(--blue-soft-button);
+  display: inline-block;
+}
+
+.music-button.is-playing .state-dot {
+  box-shadow: 0 0 0 0.22rem rgba(93, 140, 179, 0.28);
+}
+
+/* =========================================================
+   PAINEL QR CODE
+   ========================================================= */
+
+.qr-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(20, 35, 50, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.qr-modal.is-open {
+  display: grid;
+}
+
+.qr-panel {
+  position: relative;
+  inline-size: min(86vw, 22rem);
+  padding: 1.6rem 1.2rem 1.2rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(157, 196, 226, 0.4);
+  box-shadow: 0 28px 60px rgba(18, 36, 52, 0.2);
+  text-align: center;
+}
+
+.qr-title {
+  margin: 0 0 0.8rem;
+  color: var(--blue-deep);
+  font-size: 0.84rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.qr-panel img {
+  inline-size: min(100%, 13rem);
+  margin: 0 auto;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(157, 196, 226, 0.3);
+}
+
+.qr-url {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.qr-close {
+  position: absolute;
+  inset-block-start: 0.6rem;
+  inset-inline-end: 0.7rem;
+  border: none;
+  background: transparent;
+  color: var(--blue-greyish);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+.reveal,
+.reveal-line {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.reveal.is-visible,
+.reveal-line.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal[data-delay="1"] { transition-delay: 0.1s; }
+.reveal[data-delay="2"] { transition-delay: 0.2s; }
+.reveal[data-delay="3"] { transition-delay: 0.3s; }
+
+@media (min-width: 700px) {
+  .story-section {
+    padding-inline-start: 1.5rem;
+    padding-inline-end: 1.5rem;
+  }
+
+  .photo-frame-tilted {
+    inline-size: min(80vw, 32rem);
+    margin-inline-start: 4rem;
+  }
+
+  .photo-note {
+    text-align: start;
+    margin-inline-start: 0;
+  }
+
+  .story-scene-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 1.1rem;
+  }
+
+  .photo-caption {
+    margin-block-start: 1.3rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .story,
+  .reveal,
+  .reveal-line,
+  .tomorrow-line,
+  .hero-line,
+  .particle,
+  .music-button,
+  .secret-note,
+  .cta-button,
+  .photo-frame {
+    transition: none !important;
+    animation: none !important;
+  }
+}
