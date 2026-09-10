@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#faf7f2" />
+    <title>1 mês contigo 💙</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="hero" aria-label="Abertura do presente">
+        <div class="hero-card">
+          <p class="eyebrow">uma pequena surpresa</p>
+          <div class="hero-lines" aria-live="polite">
+            <div id="heroLineOne" class="hero-line">tenho uma coisinha para te mostrar…</div>
+          </div>
+          <div class="hero-bear" aria-label="ursinho de pelúcia">🧸</div>
+          <h1 class="hero-title">Para ti.</h1>
+          <div class="hero-subtitle">porque há memórias que merecem um lugar especial.</div>
+          <button id="openGift" class="cta-button" type="button" aria-label="Abrir o presente">abrir 🩵</button>
+          <div class="hero-note">feito especialmente para ti, meu amor <span class="heart-blue">💙</span></div>
+        </div>
+      </section>
+
+      <main id="story" class="story" aria-live="polite">
+        <section class="story-section intro">
+          <div class="story-container">
+            <p class="section-kicker">1 mês</p>
+            <h2 class="intro-word reveal">1 mês.</h2>
+            <div class="intro-copy reveal-line">
+              <span class="reveal-line">Parece pouco quando dizemos assim.</span>
+              <span class="reveal-line">Mas quando penso em tudo o que aconteceu neste mês,</span>
+              <span class="reveal-line">parece que já cabem tantas memórias aqui.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="story-section photo-scene">
+          <div class="story-container">
+            <div class="story-scene-header">
+              <div>
+                <p class="section-kicker">memória</p>
+              </div>
+            </div>
+            <div class="photo-frame photo-frame-large" data-parallax>
+              <img src="assets/foto1.jpg" alt="Primeira fotografia nossa" loading="eager" />
+            </div>
+            <p class="photo-caption reveal-line">uma memória que quero guardar para sempre. 🩵</p>
+          </div>
+        </section>
+
+        <section class="story-section photo-scene">
+          <div class="story-container">
+            <div class="story-scene-header">
+              <div>
+                <p class="section-kicker">entre nós</p>
+              </div>
+            </div>
+            <div class="photo-frame photo-frame-tilted" data-parallax>
+              <img src="assets/foto2.jpg" alt="Segunda fotografia nossa" loading="lazy" />
+            </div>
+            <div class="photo-note">[06/09/2026 / Quarteira / memória]</div>
+            <p class="photo-caption reveal-line">e depois há estes momentos…</p>
+          </div>
+        </section>
+
+        <section class="story-section photo-scene emotional" id="emotionalScene">
+          <div class="story-container">
+            <div class="photo-frame photo-frame-full" data-parallax>
+              <img src="assets/foto3.jpg" alt="Terceira fotografia nossa" loading="lazy" />
+              <div class="emotional-overlay">
+                <p class="reveal-line">se pudesse voltar a um momento,<br />escolhia muitos dos nossos.</p>
+              </div>
+              <button id="secretButton" class="secret-button" type="button" aria-label="Detalhe secreto">✦</button>
+            </div>
+            <div id="secretNote" class="secret-note">ps: eu escolheria-te outra vez. 🩵</div>
+          </div>
+        </section>
+
+        <section class="story-section timeline">
+          <div class="story-container">
+            <p class="section-kicker">a nossa história</p>
+            <div id="timelineList" class="timeline-list" aria-label="Linha do tempo do primeiro mês"></div>
+          </div>
+        </section>
+
+        <section class="story-section letter-section">
+          <div class="letter-shell">
+            <p class="section-kicker">uma carta para ti</p>
+            <h2 class="letter-title">uma carta para ti</h2>
+            <article class="letter" id="letterContent"></article>
+          </div>
+        </section>
+
+        <section class="tomorrow-section reveal" id="tomorrowSection">
+          <div class="tomorrow-content">
+            <h2 class="tomorrow-word">amanhã…</h2>
+            <p class="tomorrow-line">começa uma nova parte da nossa história.</p>
+            <p class="tomorrow-line">e eu mal posso esperar para vivê-la contigo.</p>
+            <p class="tomorrow-line">porque contigo, tudo parece mais bonito.</p>
+          </div>
+        </section>
+
+        <section class="final-scene">
+          <div class="story-container">
+            <div class="final-photo-wrap">
+              <img src="assets/foto1.jpg" alt="Fotografia final de memória" loading="lazy" />
+            </div>
+            <div class="final-copy">
+              <h2 class="final-title">feliz 1 mês, meu amor. 💙</h2>
+              <p>isto é só o começo.</p>
+              <button id="finalHeart" class="final-heart" type="button" aria-label="Coração secreto">🩵</button>
+              <div id="finalNote" class="secret-note">ok… esta era só para te lembrar:<br />que eu gosto muito mesmo de vc AMOR. 🩵</div>
+            </div>
+            <div class="final-tag">guarda este cantinho.<br />é nosso. ✦</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button id="qrButton" class="qr-button" type="button" aria-label="Mostrar código QR">QR ✦</button>
+
+    <button id="musicToggle" class="music-button" type="button" aria-label="Controlar música de fundo">
+      <span>♫ música</span>
+      <span class="state-dot"></span>
+    </button>
+
+    <div id="qrModal" class="qr-modal" aria-hidden="true">
+      <div class="qr-panel" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+        <button id="closeQr" class="qr-close" type="button" aria-label="Fechar QR">×</button>
+        <p id="qrTitle" class="qr-title">abre este presente por QR 🩵</p>
+        <img id="qrImage" alt="Código QR para abrir o presente" />
+        <p class="qr-url">a carregar URL do site…</p>
+      </div>
+    </div>
+
+    <audio id="ambientAudio" loop preload="auto">
+      <source src="assets/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
