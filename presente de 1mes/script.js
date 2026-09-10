@@ -157,67 +157,72 @@ function setupParallax() {
 }
 
 function setupMusic() {
-  const musicPath = new URL('assets/music.mp3', window.location.href).toString();
-
-  audio.src = musicPath;
-  audio.preload = 'auto';
-
-  if (musicButton) {
-    musicButton.classList.add('is-visible');
-  }
-
   if (!musicButton || !audio) {
     return;
   }
 
-  audio.play().then(() => {
-    musicButton.classList.add('is-playing');
-    musicButton.classList.remove('is-paused');
-  }).catch(() => {
-    musicButton.classList.remove('is-playing');
-    musicButton.classList.add('is-paused');
-  });
+  audio.preload = 'auto';
+  musicButton.classList.remove('is-playing');
+  musicButton.classList.add('is-paused');
+  musicButton.setAttribute('aria-pressed', 'false');
 
   musicButton.addEventListener('click', async () => {
     try {
       if (audio.paused) {
         await audio.play();
-        musicButton.classList.add('is-playing');
-        musicButton.classList.remove('is-paused');
       } else {
         audio.pause();
-        musicButton.classList.remove('is-playing');
-        musicButton.classList.add('is-paused');
       }
     } catch (error) {
       musicButton.classList.remove('is-playing');
       musicButton.classList.add('is-paused');
+      musicButton.setAttribute('aria-label', 'Música indisponível neste navegador');
     }
   });
 
   audio.addEventListener('play', () => {
     musicButton.classList.add('is-playing');
     musicButton.classList.remove('is-paused');
+    musicButton.setAttribute('aria-pressed', 'true');
   });
 
   audio.addEventListener('pause', () => {
     musicButton.classList.remove('is-playing');
     musicButton.classList.add('is-paused');
+    musicButton.setAttribute('aria-pressed', 'false');
   });
 
   audio.addEventListener('error', () => {
-    musicButton.textContent = '♫ música';
-    musicButton.setAttribute('aria-label', 'Música indisponível');
-    musicButton.disabled = true;
-    musicButton.style.opacity = '0.8';
+    musicButton.classList.remove('is-playing');
+    musicButton.classList.add('is-paused');
+    musicButton.setAttribute('aria-pressed', 'false');
+    musicButton.setAttribute('aria-label', 'Música indisponível neste navegador');
   });
+}
+
+async function startMusic() {
+  if (!audio || !musicButton) {
+    return;
+  }
+
+  musicButton.classList.add('is-visible');
+
+  try {
+    if (audio.paused) {
+      await audio.play();
+    }
+  } catch (error) {
+    musicButton.classList.remove('is-playing');
+    musicButton.classList.add('is-paused');
+    musicButton.setAttribute('aria-label', 'Música indisponível neste navegador');
+  }
 }
 
 function openGift() {
   document.body.classList.add('story-open');
   story.scrollIntoView({ behavior: 'smooth', block: 'start' });
   startParticles();
-  setupMusic();
+  startMusic();
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return;
@@ -243,72 +248,8 @@ function setupSecretDetails() {
   }
 }
 
-function getLocalNetworkAddresses() {
-  if (!window.RTCPeerConnection) {
-    return Promise.resolve([]);
-  }
-
-  return new Promise((resolve) => {
-    const addresses = new Set();
-    const pc = new RTCPeerConnection({ iceServers: [] });
-
-    pc.onicecandidate = (event) => {
-      if (!event.candidate || !event.candidate.candidate) {
-        return;
-      }
-
-      const match = event.candidate.candidate.match(/(?:[0-9]{1,3}\.){3}[0-9]{1,3}/);
-
-      if (match) {
-        const address = match[0];
-
-        if (!address.startsWith('127.') && !address.startsWith('169.254.')) {
-          addresses.add(address);
-        }
-      }
-    };
-
-    pc.createDataChannel('');
-
-    pc.createOffer()
-      .then((offer) => pc.setLocalDescription(offer))
-      .catch(() => {});
-
-    setTimeout(() => {
-      pc.close();
-      resolve(Array.from(addresses));
-    }, 1200);
-  });
-}
-
-async function getQrTargetUrl() {
-  const port = window.location.port || '8000';
-  const hostname = window.location.hostname;
-  const candidates = new Set();
-
-  if (hostname && !['localhost', '127.0.0.1', '::1'].includes(hostname)) {
-    candidates.add(hostname);
-  }
-
-  try {
-    const localAddresses = await getLocalNetworkAddresses();
-
-    localAddresses.forEach((address) => {
-      if (!address.startsWith('127.') && !address.startsWith('169.254.')) {
-        candidates.add(address);
-      }
-    });
-  } catch (error) {
-    // Ignora falhas de descoberta de rede e usa o fallback abaixo.
-  }
-
-  const preferredAddress = Array.from(candidates)[0];
-
-  if (preferredAddress) {
-    return `http://${preferredAddress}:${port}`;
-  }
-
-  return `http://localhost:${port}`;
+function getQrTargetUrl() {
+  return new URL(window.location.href).href;
 }
 
 function setupQr() {
